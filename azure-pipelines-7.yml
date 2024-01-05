@@ -1,0 +1,31 @@
+# This is my customized YAML
+
+stages:
+
+- stage: Build
+  jobs:
+
+  - job: BuildJob
+    steps:
+
+    - script: echo This is devops training 
+- stage: Test
+  dependsOn: Build
+  jobs:
+
+  - job: TestOnWindows
+    steps:
+
+    - script: echo Testing on devops!
+  - job: TestOnLinux
+    steps:
+
+    - script: echo Testing on my Yaml File!
+- stage: Deploy
+  dependsOn: Test
+  jobs:
+
+  - job: Deploy
+    steps:
+
+    - script: echo Done All the things!
